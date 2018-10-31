@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	
+	char slovo = 0;
+	int maloslovobrojac = 0;
+	int velikoslovobrojac = 0;
+	int ostalo = 0;
+	do
+	{
+		if (slovo >= 'a' && slovo <= 'z')
+		{
+			maloslovobrojac++;
+		}
+		else if (slovo >= 'A' && slovo <= 'a')
+		{
+			velikoslovobrojac++;
+		}
+		else
+		{
+			ostalo++;
+		}
+		cin >> slovo;
+	} while (slovo != '0');
+	
+	cout << "Velikih slova: " << velikoslovobrojac << endl;
+	cout << "Malih slova: " << maloslovobrojac << endl;
+	cout << "Ostalih: " << ostalo << endl;
+
+	system("PAUSE>null");
+	return 0;
+}
