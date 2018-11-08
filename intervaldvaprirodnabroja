@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+bool prost(int);
+int main()
+{
+	int x, y, u = 1, c;
+	do
+	{
+		cout << "Unesite dva prirodna broja manja od 500, koji ce biti granice intervala: " << endl;
+		cin >> x;
+		cin >> y;
+	} while (x > 500 || y > 500 || x > y);
+
+	for (int i = x; i <= y; i++)
+	{
+		if (prost(i))
+		{
+			u *= i;
+		}
+	}
+	c = u % 10;
+	cout << "Umnozak svih prostih brojeva u ovom nizu zavrsava cifrom: " << c << endl;
+
+	system("pause");
+	return 0;
+
+}
+bool prost(int  br)
+{
+	for (int i = 2; i < br; i++)
+	{
+		if (br%i == 0)
+			return false;
+	}
+	return true;
+}
