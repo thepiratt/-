@@ -1,0 +1,66 @@
+#include <iostream>
+#include <ctime>
+#include <iomanip>
+using namespace std;
+
+void Popuni(int *niz, int vel, int i = 0)
+{
+	for (int i = 0; i < vel; i++)
+	{
+		*(niz + i) = rand() % 100 + 1;
+		if (*(niz + i) == *(niz + i - 1) && *(niz + i) == *(niz + i - 2))
+			return;
+	}
+}
+
+void Ispisi(int *niz, int vel, int i = 0)
+{
+	for (int i = 0; i < vel; i++)
+	{
+		cout << *(niz + i) << setw(5);
+	}
+	cout << endl;
+}
+
+int Zbir(int *niz, int vel, int i = 0)
+{
+	if (i < 0 || i >= vel)
+		return 0;
+
+	return (*(niz+i) + Zbir(niz, vel, i+1));
+
+}
+
+
+
+
+int main()
+{
+	int vel;
+	do
+	{
+		cout << "Unesite velicinu vaseg niza:" << endl;
+		cin >> vel;
+	} while (vel<=0);
+	int *niz = new int[vel];
+
+
+	srand(time(0));
+
+
+	Popuni(niz, vel);
+	Ispisi(niz, vel);
+	cout << "Zbir elemenata niza je : " << Zbir(niz, vel) << endl;
+
+
+
+
+	delete[] niz;
+	niz = NULL;
+
+
+
+
+	system("PAUSE>null");
+	return 1;
+}
